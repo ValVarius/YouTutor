@@ -53,11 +53,16 @@ const tutor = tutors[i];
     );
   }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
   
 
 
     // const teacherAdd = props.currentUser.Teachers
+=======
+>>>>>>> c94f31d47e9b75b0e6ce5279c37f91325d07e78f
     return (
+<<<<<<< HEAD
 
 
         <div className = "ProfilePage">
@@ -72,6 +77,136 @@ const tutor = tutors[i];
             <div>
                 {tutorCards}
             </div>
+=======
+=======
+     return (
+>>>>>>> 99f055445bf54e63b9b830a76f4ee2a2b659b3fd
+        <div classNameName="ProfilePage">
+            <ProfileCard userdata={User} />
+            {/* <TeacherCard teacherdata= {teacherAdd}/> */}
+            <button classNameName="button is-link is-outlined"><Link to='/newTeacherPost'>This is where Teachers go to create an add and Look For Students</Link></button>
+            <button classNameName="button is-danger is-outlined"><Link to='/newpost'>This is where students go if they need a Teacher</Link></button>
+            <div>
+                {tutorCards}
+            </div>
+            <div>
+            </div>
+            <ul>
+
+                {props.studentsearch ? props.studentsearch.map(userInfo => (
+                    
+                    <li key={userInfo.userID}>
+                        <div className="box studentbox">
+                            <article className="media">
+                                <div className="media-left">
+                                    <figure className="image is-64x64">
+                                        <img src={userInfo.studentResults ? userInfo.studentResults[0].User.picture: "https://bulma.io/images/placeholders/128x128.png"} alt="picture" />
+                                    </figure>
+                                </div>
+                                <div className="media-content">
+                                    <div className="content">
+                                        <p>
+                                            <strong>{userInfo.studentResults ? userInfo.studentResults[0].User.first_name + " " + userInfo.studentResults[0].User.last_name : ""}</strong> <small>he asks for help on {userInfo.postDate}</small>
+                                            <br />
+                                            You have  <strong>{Math.floor(userInfo.percentage)}%</strong> of the skill he is looking for.
+                                            <br />
+                                            Email: {userInfo.studentResults[0].User.email}
+                                            we can also put his skills
+                                            
+                                            
+                                      </p>
+                                    </div>
+                                    <nav className="level is-mobile">
+                                        <div className="level-left">
+                                            <a className="level-item" aria-label="reply">
+                                                <span className="icon is-small">
+                                                    <i className="fas fa-reply" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                            <a className="level-item" aria-label="retweet">
+                                                <span className="icon is-small">
+                                                    <i className="fas fa-retweet" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                            <a className="level-item" aria-label="like">
+                                                <span className="icon is-small">
+                                                    <i className="fas fa-heart" aria-hidden="true"></i>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </article>
+                        </div>
+
+
+
+
+                    </li>
+                )) : ""}
+            </ul>
+
+
+
+
+            <ul>
+
+{props.teachersearch ? props.teachersearch.map(userInfo => (
+    
+    <li key={userInfo.userID}>
+        <div className="box teacherbox">
+            <article className="media">
+                <div className="media-left">
+                    <figure className="image is-64x64">
+                        <img src={userInfo.teacherResults ? userInfo.teacherResults[0].User.picture: "https://bulma.io/images/placeholders/128x128.png"} alt="picture" />
+                    </figure>
+                </div>
+                <div className="media-content">
+                    <div className="content">
+                        <p>
+                            <strong>{userInfo.teacherResults ? userInfo.teacherResults[0].User.first_name + " " + userInfo.teacherResults[0].User.last_name : ""}</strong> <small>he asks for help on {userInfo.postDate}</small>
+                            <br />
+                            You have  <strong>{Math.floor(userInfo.percentage)}%</strong> of the skill he is looking for
+                            <br />
+                            Email: {userInfo.teacherResults[0].User.email}
+                            we can also put his skills
+                            
+                            
+                      </p>
+                    </div>
+                    <nav className="level is-mobile">
+                        <div className="level-left">
+                            <a className="level-item" aria-label="reply">
+                                <span className="icon is-small">
+                                    <i className="fas fa-reply" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                            <a className="level-item" aria-label="retweet">
+                                <span className="icon is-small">
+                                    <i className="fas fa-retweet" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                            <a className="level-item" aria-label="like">
+                                <span className="icon is-small">
+                                    <i className="fas fa-heart" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </article>
+        </div>
+
+
+
+
+    </li>
+)) : ""}
+</ul>
+
+
+        </div>
+>>>>>>> master
 
             <div></div>
 </div>
