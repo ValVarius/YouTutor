@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "https://string2020.herokuapp.com"
+// const BASE_URL = "https://string2020.herokuapp.com"
+const BASE_URL = "http://localhost:8080"
 const API = {
     login:function(userData){
         return axios.post(`${BASE_URL}/login`,userData,{withCredentials:true})

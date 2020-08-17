@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import { useHistory, useLocation } from "react-router-dom";
@@ -6,7 +6,7 @@ import "./style.css";
 
 export default function Navbar(props) {
   const location = useLocation();
-  console.log(location.pathname);
+  // console.log(location.pathname);
 
   const history = useHistory();
 
