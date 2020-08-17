@@ -3,10 +3,6 @@ import ProfileCard from "../../components/ProfileCard"
 import "./style.css"
 import { Link } from "react-router-dom";
 import StarRatingComponent from 'react-star-rating-component';
-
-
-
-
 export default function Profile(props) {
     const SearchResultArr = []
     const User = props.currentUser;
@@ -267,10 +263,5 @@ export default function Profile(props) {
 
 
         </div>
-
     )
 }
-
-
-
-
