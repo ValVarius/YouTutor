@@ -66,7 +66,6 @@ const [teachersearch, setTeacherSearch] = useState(false);
 
       <Route exact path="/profile">
 
-
         <Profile currentUser={currentUser} studentsearch = {studentsearch} teachersearch = {teachersearch}/>
 
       </Route>
