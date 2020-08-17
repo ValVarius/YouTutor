@@ -33,7 +33,7 @@ export default function ProfileCard(props) {
       
       <div >
       <p className="title is-5 center-content">Welcome {props.userdata.first_name}</p>
-      <p className="title is-7 left-content"> We have <span classNane = "student-color">{props.studentsearch ? props.studentsearch.length : "some"}</span> students available for you and <span classNane = "teacher-color">{props.teachersearch ? props.teachersearch.length : "some"}</span> teachers.</p>
+      <p className="title is-7 left-content"> We have <span className = "student-color">{props.studentsearch ? props.studentsearch.length : "some"}</span> students available for you and <span className = "teacher-color">{props.teachersearch ? props.teachersearch.length : "some"}</span> teachers.</p>
 
       </div>
     </div>
