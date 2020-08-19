@@ -45,7 +45,7 @@ export default function Login(props) {
             }
             if(res.data.StudentSkills){
               const studentSkillsArray = [];
-              res.data.TeacherSkills.forEach((element) => {
+              res.data.StudentSkills.forEach((element) => {
                 studentSkillsArray.push(element.skill);
               });
            

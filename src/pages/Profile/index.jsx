@@ -8,8 +8,8 @@ export default function Profile(props) {
   const User = props.currentUser;
 
 
-  console.log(User);
-  // console.log(props);
+  // console.log(User);
+  console.log(props);
 
   //   const updateTutorRating = (nextValue, prevValue, name) => {
   //     const dataToSupplyIntoAPI = {
@@ -174,16 +174,16 @@ export default function Profile(props) {
                                   : ""}
                               </strong>{" "}
                               <small>
-                                asks for help on {userInfo.postDate}
+                                can help you!
                               </small>
                               <br />
-                              You have{" "}
+                              {userInfo.teacherResults[0].User.first_name} has{" "}
                               <strong>
                                 {Math.floor(userInfo.percentage)}%
                               </strong>{" "}
-                              of the skill he is looking for!
+                              of the skill you are looking for!
                               <br />
-                              you can connect him by Email:
+                              you can connect with {userInfo.teacherResults[0].User.first_name} by Email:
                               <br />{" "}
                               {userInfo.teacherResults
                                 ? userInfo.teacherResults[0].User.email
