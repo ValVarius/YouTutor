@@ -85,7 +85,11 @@ function App() {
             </Route>
 
             <Route exact path="/signup">
-              <SignUp submitHandler={loginSubmitHandler} />
+              <SignUp
+                submitHandler={loginSubmitHandler}
+                passStudents={passStudents}
+                passTeachers={passTeachers}
+              />
             </Route>
 
             <Route exact path="/profile">
