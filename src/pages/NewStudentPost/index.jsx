@@ -78,13 +78,13 @@ export default function NewStudentPost(props) {
   };
 
   const getSkills = (chosen) => {
-    console.log(chosen);
+    // console.log(chosen);
     let chosenskills = chosen;
     setUserState({
       ...userState,
       skills: chosenskills,
     });
-    console.log(userState.skills);
+    // console.log(userState.skills);
   };
 
   return (

@@ -44,7 +44,7 @@ export default function NewTeacherPost(props) {
 
     API.deleteTeacherCurrentPost()
       .then((result) => {
-         console.log("PreviousPostDeleted: " + result);
+        console.log("PreviousPostDeleted: " + result);
         API.createTeacherPost(userState)
           .then((newUser) => {
             console.log(newUser);
@@ -63,25 +63,20 @@ export default function NewTeacherPost(props) {
                       console.log(res.data);
                       props.submitHandler(res.data);
 
-                      if (userState.skills) {
-                        API.getStudentMatch({ skills: userState.skills.join(",") })
-                          .then((newUser) => {
-                            console.log(
-                              "MATCH RESULT STUDENT SKILLS FOR STUDENTS: ",
-                              newUser.data
-                            );
-                            props.passStudents(newUser.data);
-                            history.push("/profile");
-                          })
-                          .catch((err) => {
-                            console.log(err);
-                          });
-                      }
-                      else{
-                        history.push("/profile");
-                      }
-
-
+                      API.getStudentMatch({
+                        skills: userState.skills.join(","),
+                      })
+                        .then((newUser) => {
+                          console.log(
+                            "MATCH RESULT STUDENT SKILLS FOR STUDENTS: ",
+                            newUser.data
+                          );
+                          props.passStudents(newUser.data);
+                          history.push("/profile");
+                        })
+                        .catch((err) => {
+                          console.log(err);
+                        });
                     });
                   })
                   .catch((err) => {
@@ -99,8 +94,6 @@ export default function NewTeacherPost(props) {
       .catch((err) => {
         console.log(err);
       });
-
-
   };
 
   return (
@@ -109,16 +102,15 @@ export default function NewTeacherPost(props) {
         <label className="label is-large">Post your Add as a Teacher:</label>
         <FilterSkills getSkills={getSkills} />
         <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
         <div className="field">
           <label className="label">About</label>
