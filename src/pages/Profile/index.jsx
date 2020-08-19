@@ -55,7 +55,7 @@ export default function Profile(props) {
           <ul className="center-element">
             {props.studentsearch
               ? props.studentsearch.map((userInfo) => (
-                  <li key={User.id}>
+                  <li key={userInfo.studentResults[0].User.id}>
                     <div className="box studentbox">
                       <article className="media">
                         <div className="media-left">
