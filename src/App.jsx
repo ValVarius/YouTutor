@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     API.readSessions().then((res) => {
-      // console.log(res.data);
+      console.log(res.data);
 
       if (res.data.user) {
         setCurrentUser(res.data.user);
