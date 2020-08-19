@@ -72,6 +72,9 @@ function App() {
 
   const logoutHandle = () => {
     setCurrentUser(false);
+    setTeacherSearch(false);
+    setStudentSearch(false);
+
   };
 
   return (
