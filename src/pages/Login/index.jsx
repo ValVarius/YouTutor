@@ -66,12 +66,12 @@ export default function Login(props) {
     });
   };
 
-  const handleSessionBtnClick = (event) => {
-    event.preventDefault();
-    API.readSessions().then((res) => {
-      console.log(res.data);
-    });
-  };
+  // const handleSessionBtnClick = (event) => {
+  //   event.preventDefault();
+  //   API.readSessions().then((res) => {
+  //     console.log(res.data);
+  //   });
+  // };
 
   return (
     <div className="UserForm">

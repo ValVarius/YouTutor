@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import { Link } from "react-router-dom";
 import ImageUpload from '../../components/ImageWidget';
-import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+// import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
 
 
@@ -115,7 +115,7 @@ const handleFormSubmit = event => {
   <label className="label">Password</label>
   <div className="control">
 
-   <input type="password" className="input" onChange={handleInputChange} name="password" value={userState. password} placeholder="Password"/>
+   <input type="password" className="input" onChange={handleInputChange} name="password" value={userState.password} placeholder="Password"/>
 
 
 

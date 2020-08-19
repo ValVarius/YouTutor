@@ -21,6 +21,7 @@ export default function NewTeacherPost(props) {
   };
 
   const handleInputChange = (event) => {
+    // console.log(event);
     const { name, value } = event.target;
     setUserState({
       ...userState,
@@ -29,6 +30,7 @@ export default function NewTeacherPost(props) {
   };
 
   const getSkills = (chosen) => {
+    // console.log(chosen);
     let chosenskills = chosen;
     setUserState({
       skills: chosenskills,
@@ -42,7 +44,7 @@ export default function NewTeacherPost(props) {
 
     API.deleteTeacherCurrentPost()
       .then((result) => {
-        //  console.log("PreviousPostDeleted: " + result);
+         console.log("PreviousPostDeleted: " + result);
         API.createTeacherPost(userState)
           .then((newUser) => {
             console.log(newUser);
@@ -60,7 +62,26 @@ export default function NewTeacherPost(props) {
                     API.login(loginState).then((res) => {
                       console.log(res.data);
                       props.submitHandler(res.data);
-                      history.push("/profile");
+
+                      if (userState.skills) {
+                        API.getStudentMatch({ skills: userState.skills.join(",") })
+                          .then((newUser) => {
+                            console.log(
+                              "MATCH RESULT STUDENT SKILLS FOR STUDENTS: ",
+                              newUser.data
+                            );
+                            props.passStudents(newUser.data);
+                            history.push("/profile");
+                          })
+                          .catch((err) => {
+                            console.log(err);
+                          });
+                      }
+                      else{
+                        history.push("/profile");
+                      }
+
+
                     });
                   })
                   .catch((err) => {
@@ -79,26 +100,24 @@ export default function NewTeacherPost(props) {
         console.log(err);
       });
 
-    if (userState.skills) {
-      API.getStudentMatch({ skills: userState.skills.join(",") })
-        .then((newUser) => {
-          console.log(
-            "MATCH RESULT TUDENT SKILLS FOR STUDENTS: ",
-            newUser.data
-          );
-          props.passStudents(newUser.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+
   };
 
   return (
     <div>
-      <FilterSkills getSkills={getSkills} />
       <div className="UserForm">
         <label className="label is-large">Post your Add as a Teacher:</label>
+        <FilterSkills getSkills={getSkills} />
+        <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
 
         <div className="field">
@@ -109,7 +128,7 @@ export default function NewTeacherPost(props) {
               type="text"
               onChange={handleInputChange}
               name="about"
-              value={userState.about}
+              value={userState.about || ""}
               placeholder="About"
             />
           </div>
@@ -123,7 +142,7 @@ export default function NewTeacherPost(props) {
               type="text"
               onChange={handleInputChange}
               name="YearsofExperience"
-              value={userState.YearsofExperience}
+              value={userState.YearsofExperience || ""}
               placeholder="YearsofExperience"
             />
           </div>
