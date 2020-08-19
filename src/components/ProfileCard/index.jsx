@@ -1,31 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import "./style.css"
-import API from "../../utils/API"
+// import React, { useState, useEffect } from 'react'
+import React from 'react';
+import "./style.css";
+// import API from "../../utils/API"
 
 export default function ProfileCard(props) {
     // console.log(props.userdata.TeacherSkills);
 
-    const [teacherSkillsArray, setTeacherArray] = useState([]);
+    // const [teacherSkillsArray, setTeacherArray] = useState([]);
     
-    useEffect(() => {
-      API.getTeacherSkills(props.userdata.id)
-                .then(res => {
+    // useEffect(() => {
+    //   API.getTeacherSkills(props.userdata.id)
+    //             .then(res => {
 
-                  const skillsArr = res.data.map(element => element.skill)
-                  setTeacherArray(skillsArr)
-              })
-              .catch(err => {
-                console.log(err);
-              })
+    //               const skillsArr = res.data.map(element => element.skill)
+    //               setTeacherArray(skillsArr)
+    //           })
+    //           .catch(err => {
+    //             console.log(err);
+    //           })
 
-            // }
-          }, [])
+    //         // }
+    //       }, [])
     return (
       <div>
         <div className="box id-box">
   <div className="card-image">
     <figure className="image is-4by3">
-      <img src={props.userdata.picture} alt="Placeholder image"/>
+      <img src={props.userdata.picture} alt="Placeholder"/>
     </figure>
   </div>
   <div className="card-content">

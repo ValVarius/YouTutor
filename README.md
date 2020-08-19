@@ -1,4 +1,4 @@
-# BeTUTOR
+# YouTUTOR
 
 ## A fullstack application that getting help with your questions providing tutor service.
 
@@ -11,7 +11,7 @@
 
 ## Installation
 
-To use this application, follow the link on the repository page; otherwise, you can [click here]().
+To use this application, follow the link on the repository page; otherwise, you can [click here](https://you-tutor.herokuapp.com).
 
 ## Usage 
 

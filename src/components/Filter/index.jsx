@@ -3,16 +3,18 @@ import API from "../../utils/API"
 import "./style.css"
 
 
-const logoX = "https://avatars2.githubusercontent.com/u/56105414?s=400&u=e52d89d5d9701146a87f29bb59c3d47fd362b66b&v=4"
+// const logoX = "https://avatars2.githubusercontent.com/u/56105414?s=400&u=e52d89d5d9701146a87f29bb59c3d47fd362b66b&v=4"
 
 function FilterSkills(props) {
+
+  // console.log(props);
   const [allSkillsState, setAllSkillsState] = useState([])
   const [skillState, setWorkingSkillsState] = useState([])
   const [chosenSkillState, setChosenSkillState] = useState([])
   const [searchState, setSearchState] = useState("");
-  const [saveState, setSaveState] = useState([]);
+  // const [saveState, setSaveState] = useState([]);
 
-  //all skills
+  // Getting all available skills
   useEffect(() => {
     API.getSkillResult().then(res => {
       const skillsArr = res.data.map(skill => skill.skill)
@@ -95,7 +97,7 @@ function FilterSkills(props) {
     <div className="container1">
     <div className="filter-card">
       <div className="find-card-header">
-        <span className="Txt" className="navbar-brand find-card-header"><h1>Find Skills</h1></span>
+        <span className="navbar-brand find-card-header"><h1>Find Skills</h1></span>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <form className="form-inline my-2 my-lg-0">
                 <input onChange={handleInput} className="form-control mr-sm-2" type="search" placeholder="Filter Skills here" aria-label="Search" />
