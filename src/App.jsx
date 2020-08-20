@@ -15,8 +15,10 @@ function App() {
   const [teachersearch, setTeacherSearch] = useState(false); //stores the list of matching teachers
 
   useEffect(() => {
+
+    // If a session returns then all info about the user is render on profile page
     API.readSessions().then((res) => {
-      console.log(res.data);
+      console.log(res);
 
       if (res.data.user) {
         setCurrentUser(res.data.user);

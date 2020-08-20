@@ -44,7 +44,7 @@ export default function NewTeacherPost(props) {
 
     API.deleteTeacherCurrentPost()
       .then((result) => {
-        console.log("PreviousPostDeleted: " + result);
+        console.log("PreviousPostDeleted: " , result);
         API.createTeacherPost(userState)
           .then((newUser) => {
             console.log(newUser);

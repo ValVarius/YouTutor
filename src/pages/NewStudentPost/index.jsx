@@ -30,9 +30,9 @@ export default function NewStudentPost(props) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    API.deleteCurrentPost()
+    API.deleteCurrentPost(props.currentUser)
       .then((result) => {
-        //  console.log("PreviousPostDeleted: " + result);
+         console.log("PreviousPostDeleted: " + result);
         API.createStudentPost(userState)
           .then((newUser) => {
             console.log(newUser);

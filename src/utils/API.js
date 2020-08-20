@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const BASE_URL = "https://you-tutor-backend.herokuapp.com"
+// const BASE_URL = "https://you-tutor-backend.herokuapp.com"
 
-// const BASE_URL = "http://localhost:8080"
+const BASE_URL = "http://localhost:8080"
 const API = {
     login:function(userData){
         return axios.post(`${BASE_URL}/login`,userData,{withCredentials:true})
@@ -19,10 +19,10 @@ const API = {
     createTeacherPost:function(userData){
         return axios.post(`${BASE_URL}/signup/teacher`,userData,{withCredentials:true})
     },
-    deleteTeacherCurrentPost:function(userData){
+    deleteTeacherCurrentPost:function(){
         return axios.delete(`${BASE_URL}/posts/deleteTeacher/currentuser`,{withCredentials:true})
     },
-    deleteCurrentPost:function(userData){
+    deleteCurrentPost:function(){
         return axios.delete(`${BASE_URL}/posts/delete/currentuser`,{withCredentials:true})
     },
     deleteStudentSkills:function(){
