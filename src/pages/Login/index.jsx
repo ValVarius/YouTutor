@@ -24,36 +24,40 @@ export default function Login(props) {
     // console.log(loginState);
 
     API.login(loginState).then((res) => {
+      
       if (res.data.id) {
         props.submitHandler(res.data);
-        if (res.data.TeacherSkills) {
-          const teacherSkillsArray = [];
-          res.data.TeacherSkills.forEach((element) => {
-            teacherSkillsArray.push(element.skill);
-          });
-
-          API.getStudentMatch({ skills: teacherSkillsArray.join(",") })
-            .then((newUser) => {
-              props.passStudents(newUser.data);
-            })
-            .catch((err) => {
-              console.log(err);
+          if(res.data.TeacherSkills){
+            console.log("Find teacher post skills This is the data:");
+            const teacherSkillsArray = [];
+            res.data.TeacherSkills.forEach((element) => {
+              teacherSkillsArray.push(element.skill);
             });
-        }
-        if (res.data.StudentSkills) {
-          const studentSkillsArray = [];
-          res.data.StudentSkills.forEach((element) => {
-            studentSkillsArray.push(element.skill);
-          });
+          
+            API.getStudentMatch({ skills: teacherSkillsArray.join(",") })
+              .then((newUser) => {
 
-          API.getTeacherMatch({ skills: studentSkillsArray.join(",") })
-            .then((newUser) => {
-              props.passTeachers(newUser.data);
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        }
+                props.passStudents(newUser.data);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+            }
+            if(res.data.StudentSkills){
+              const studentSkillsArray = [];
+              res.data.StudentSkills.forEach((element) => {
+                studentSkillsArray.push(element.skill);
+              });
+           
+              API.getTeacherMatch({ skills: studentSkillsArray.join(",") })
+                .then((newUser) => {
+               
+                  props.passTeachers(newUser.data);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+              }
         history.push("/profile");
       } else {
         props.submitHandler(false);
