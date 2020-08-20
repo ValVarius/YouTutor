@@ -58,14 +58,10 @@ const handleFormSubmit = event => {
             password: "",
             picture: ""
           })
-          props.passTeachers(false);
-          props.passStudents(false);
           history.push("/profile");
       } 
       else {
           props.submitHandler(false)
-          props.passTeachers(false);
-          props.passStudents(false);
         
           history.push("/signup");
       }

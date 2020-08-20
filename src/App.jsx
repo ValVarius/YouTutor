@@ -15,10 +15,8 @@ function App() {
   const [teachersearch, setTeacherSearch] = useState(false); //stores the list of matching teachers
 
   useEffect(() => {
-
-    // If a session returns then all info about the user is render on profile page
     API.readSessions().then((res) => {
-      console.log(res);
+      // console.log(res.data);
 
       if (res.data.user) {
         setCurrentUser(res.data.user);
@@ -74,9 +72,6 @@ function App() {
 
   const logoutHandle = () => {
     setCurrentUser(false);
-    setTeacherSearch(false);
-    setStudentSearch(false);
-
   };
 
   return (
@@ -90,11 +85,7 @@ function App() {
             </Route>
 
             <Route exact path="/signup">
-              <SignUp
-                submitHandler={loginSubmitHandler}
-                passStudents={passStudents}
-                passTeachers={passTeachers}
-              />
+              <SignUp submitHandler={loginSubmitHandler} />
             </Route>
 
             <Route exact path="/profile">
