@@ -60,6 +60,7 @@ export default function Login(props) {
               }
         history.push("/profile");
       } else {
+        console.log(res);
         props.submitHandler(false);
         history.push("/login");
       }
