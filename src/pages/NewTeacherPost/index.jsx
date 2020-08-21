@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import FilterSkills from "../../components/Filter";
 
 export default function NewTeacherPost(props) {
-  console.log(props);
+  console.log(props.currentUser);
 
   const [userState, setUserState] = useState({
     skills: ["None"],
