@@ -19,10 +19,10 @@ const API = {
     createTeacherPost:function(userData){
         return axios.post(`${BASE_URL}/signup/teacher`,userData,{withCredentials:true})
     },
-    deleteTeacherCurrentPost:function(userData){
-        return axios.delete(`${BASE_URL}/posts/deleteTeacher/currentuser`,{withCredentials:true})
+    deleteTeacherCurrentPost:function(current){
+        return axios.delete(`${BASE_URL}/posts/deleteTeacher/currentuser`,current,{withCredentials:true})
     },
-    deleteCurrentPost:function(userData){
+    deleteCurrentPost:function(){
         return axios.delete(`${BASE_URL}/posts/delete/currentuser`,{withCredentials:true})
     },
     deleteStudentSkills:function(){

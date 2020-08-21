@@ -42,7 +42,7 @@ export default function NewTeacherPost(props) {
     console.log("inside the handleformsubmit");
     console.log(userState);
 
-    API.deleteTeacherCurrentPost()
+    API.deleteTeacherCurrentPost(props.currentUser)
       .then((result) => {
         console.log("PreviousPostDeleted: " + result);
         API.createTeacherPost(userState)
