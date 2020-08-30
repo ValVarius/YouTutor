@@ -24,11 +24,10 @@ export default function Login(props) {
     // console.log(loginState);
 
     API.login(loginState).then((res) => {
-      
       if (res.data.id) {
         props.submitHandler(res.data);
           if(res.data.TeacherSkills){
-            console.log("Find teacher post skills This is the data:");
+            console.log("THIS IS WHAT YOU GET FROM THE API: ", res);
             const teacherSkillsArray = [];
             res.data.TeacherSkills.forEach((element) => {
               teacherSkillsArray.push(element.skill);
