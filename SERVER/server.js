@@ -31,7 +31,7 @@ app.use(
 
     // origin: ["http://localhost:3000"],
     // origin: ["http://www.you-tutor.com","https://you-tutor.herokuapp.com","http://localhost:3000"],
-    origin: ["http://www.you-tutor.com"],
+    // origin: ["http://www.you-tutor.com"],
 
     credentials: true,
   })
