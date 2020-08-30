@@ -24,9 +24,6 @@ export default function Login(props) {
     // console.log(loginState);
 
     API.login(loginState).then((res) => {
-
-      
-
       if (res.data.id) {
         props.submitHandler(res.data);
           if(res.data.TeacherSkills){
