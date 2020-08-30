@@ -51,8 +51,6 @@ app.use(
     },
   })
 );
-app.enable('trust proxy');
-
 app.use(express.static("public"));
 
 const logInRoute = require("./controllers/loginController.js");
@@ -71,7 +69,16 @@ app.use(teacherRoute);
 app.use(filterRoute);
 app.use(matchingRoute);
 
-db.sequelize
+
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    });
+  };
+
+  db.sequelize
   .sync({
     force: false,
   })
@@ -84,10 +91,3 @@ db.sequelize
     throw err;
   });
 
-  if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-  
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-    });
-  }
