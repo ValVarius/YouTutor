@@ -1,15 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
-
 const app = express();
-
 const PORT = process.env.PORT || 8080;
 require("dotenv").config();
 const session = require("express-session");
 var SequelizeStore = require("connect-session-sequelize")(session.Store);
-
 const db = require("./models");
+
 app.use(
   express.urlencoded({
     extended: true,
