@@ -72,6 +72,7 @@ app.use(matchingRoute);
     app.use(express.static("client/build"));
   
     app.get("*", (req, res) => {
+      console.log("inside production rendering");
       res.sendFile(path.join(__dirname, "client", "build", "index.html"));
     });
   };
