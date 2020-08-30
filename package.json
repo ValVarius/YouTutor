@@ -1,5 +1,5 @@
 {
-  "name": "yoututorbackend",
+  "name": "yoututor",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ValVarius/YouTutorBackEnd.git"
+    "url": "git+https://github.com/ValVarius/YouTutor.git"
   },
   "author": "Valerio Varani",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ValVarius/YouTutorBackEnd/issues"
+    "url": "https://github.com/ValVarius/YouTutor/issues"
   },
-  "homepage": "https://github.com/ValVarius/YouTutorBackEnd#readme",
+  "homepage": "https://github.com/ValVarius/YouTutor#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
