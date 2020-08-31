@@ -7,6 +7,8 @@ require("dotenv").config();
 const session = require("express-session");
 var SequelizeStore = require("connect-session-sequelize")(session.Store);
 const db = require("./models");
+const bodyParser = require("body-parser");
+const path = require("path");
 
 app.use(
   express.urlencoded({
@@ -14,6 +16,9 @@ app.use(
   })
 );
 app.use(express.json());
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const origins = [
   'http://localhost:3000', // Development
