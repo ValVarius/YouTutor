@@ -3,7 +3,7 @@ import "./style.css"
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import { Link } from "react-router-dom";
-import ImageUpload from '../../components/ImageWidget';
+// import ImageUpload from '../../components/ImageWidget';
 // import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
 
@@ -121,7 +121,9 @@ const handleFormSubmit = event => {
 
   </div>
 </div>
-<ImageUpload getPicture= {getPicture}/>
+
+{/* <ImageUpload getPicture= {getPicture}/> */}
+
 <div className="field is-grouped">
   <div className="control">
     <button className="button is-link" onClick={handleFormSubmit}>
