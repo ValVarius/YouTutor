@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 
-router.get("/", function (req, res) {
-    res.redirect("/userSignup")
-    res.render("<h1> Signup Please </h1>");
-});
+// router.get("/", function (req, res) {
+//     res.redirect("/userSignup")
+//     res.render("<h1> Signup Please </h1>");
+// });
 router.post("/login", function (req, res) {
     db.User.findOne({
         where: {
