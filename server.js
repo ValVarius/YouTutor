@@ -25,7 +25,9 @@ const origins = [
   'http://localhost:3000', // Development
   'http://you-tutor.herokuapp.com', // Just for debugging reasons
   'https://you-tutor.herokuapp.com',
-  'http://www.you-tutor.com/profile'
+  'http://www.you-tutor.com',
+  'https://www.you-tutor.com'
+  
 ];
 
 app.use(
