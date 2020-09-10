@@ -2,16 +2,18 @@ import axios from "axios";
 
 // const BASE_URL = "https://you-tutor-backend.herokuapp.com"
 // const BASE_URL = "https://you-tutor.herokuapp.com"
-const BASE_URL = process.env.PUBLIC_URL;
-console.log("here" , process.env.PUBLIC_URL);
+// const BASE_URL = process.env.PUBLIC_URL;
 
-// const BASE_URL = "http://localhost:8080"
+const BASE_URL = "http://localhost:8080"
 const API = {
     login:function(userData){
         return axios.post(`${BASE_URL}/login`,userData,{withCredentials:true})
     },
     createUser:function(userData){
         return axios.post(`${BASE_URL}/userSignup`,userData,{withCredentials:true})
+    },
+    storeImg: function(data) {
+        return axios.post(BASE_URL + '/upload', data)
     },
     getUserbyId:function(id){
         return axios.get(`${BASE_URL}/api/players/${id}`)  // what is players?

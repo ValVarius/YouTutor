@@ -4,6 +4,7 @@ import "./style.css";
 // import API from "../../utils/API"
 
 export default function ProfileCard(props) {
+  const BASE_URL = "http://localhost:8080/"
     // console.log(props.userdata.TeacherSkills);
 
     // const [teacherSkillsArray, setTeacherArray] = useState([]);
@@ -26,7 +27,7 @@ export default function ProfileCard(props) {
         <div className="box id-box">
   <div className="card-image">
     <figure className="image is-4by3">
-      <img src={props.userdata.picture} alt="Placeholder"/>
+      <img src={BASE_URL + props.userdata.picture} alt={props.userdata.picture}/>
     </figure>
   </div>
   <div className="card-content">
