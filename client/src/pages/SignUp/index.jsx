@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default function SignUp(props) {
   
 
-  const BASE_URL = process.env.PUBLIC_URL || "http://localhost:8080";
+  const BASE_URL = process.env.PUBLIC_URL //  || "http://localhost:8080";
   console.log(BASE_URL);
 
   const getPicture = (event) => {
