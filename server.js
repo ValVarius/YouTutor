@@ -7,11 +7,6 @@ require("dotenv").config();
 const session = require("express-session");
 var SequelizeStore = require("connect-session-sequelize")(session.Store);
 const db = require("./models");
-
-// NOT NECESSARY ANYMORE
-// const bodyParser = require("body-parser");
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
 const path = require("path");
 
 app.use(
@@ -22,12 +17,11 @@ app.use(
 app.use(express.json());
 
 const origins = [
-  'http://localhost:3000', // Development
-  'http://you-tutor.herokuapp.com', // Just for debugging reasons
-  'https://you-tutor.herokuapp.com',
-  'http://www.you-tutor.com',
-  'https://www.you-tutor.com'
-  
+  "http://localhost:3000", // Development
+  "http://you-tutor.herokuapp.com", // Just for debugging reasons
+  "https://you-tutor.herokuapp.com",
+  "http://www.you-tutor.com",
+  "https://www.you-tutor.com",
 ];
 
 app.use(
@@ -50,7 +44,7 @@ app.use(
     },
   })
 );
-// USE?
+
 app.use(express.static("public"));
 
 const logInRoute = require("./controllers/loginController.js");
@@ -60,6 +54,7 @@ const signupRoute = require("./controllers/signupController.js");
 const teacherRoute = require("./controllers/teacherController.js");
 const filterRoute = require("./controllers/filterController.js");
 const matchingRoute = require("./controllers/matchingController.js");
+
 
 app.use(logInRoute);
 app.use(studentRoute);
@@ -82,10 +77,9 @@ db.sequelize
     throw err;
   });
 
-
 if (process.env.NODE_ENV === "production") {
   // Serve static files from the React frontend app
-  app.use(express.static(path.join(__dirname, 'client/build')))
+  app.use(express.static(path.join(__dirname, "client/build")));
   // app.use(express.static("client/build"));
 
   // Anything that doesn't match the above, send back index.html
@@ -94,6 +88,26 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+/////////////////////////Storing Pictures
 
+const multer = require("multer");
 
+var storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "public/images/uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+const upload = multer({ storage });
+
+app.post("/upload", upload.single("image"), (req, res) => {
+
+  if (req.file)
+    res.json({
+      imageUrl: `images/uploads/${req.file.filename}`,
+    });
+  else res.status("409").json("No Files to Upload.");
+});
 
