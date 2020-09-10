@@ -44,7 +44,7 @@ app.use(
     },
   })
 );
-// USE?
+
 app.use(express.static("public"));
 
 const logInRoute = require("./controllers/loginController.js");
@@ -66,7 +66,7 @@ app.use(matchingRoute);
 
 db.sequelize
   .sync({
-    force: true,
+    force: false,
   })
   .then(function () {
     app.listen(PORT, function () {

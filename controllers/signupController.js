@@ -4,7 +4,7 @@ const express = require("express");
 
 const router = express.Router();
 
-router.get("/userSignup", function (req, res) {
+router.get("/", function (req, res) {
   res.send("Welcome to the YouTutor API");
 });
 

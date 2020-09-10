@@ -7,8 +7,11 @@ import { Link } from "react-router-dom";
 // import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
 export default function SignUp(props) {
-  // console.log(props);
-  const BASE_URL = "http://localhost:8080/"
+  
+
+  const BASE_URL = process.env.PUBLIC_URL || "http://localhost:8080";
+  console.log(BASE_URL);
+
   const getPicture = (event) => {
     let Picture = event.target.files[0];
     console.log(Picture);
@@ -17,8 +20,7 @@ export default function SignUp(props) {
     data.append("image", Picture, Picture.name);
 
     API.storeImg(data).then((res) => {
-      
-      let url = res.data.imageUrl
+      let url = res.data.imageUrl;
       console.log("back from server", res.data.imageUrl);
       console.log(url);
       setUserState({
@@ -48,27 +50,26 @@ export default function SignUp(props) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     console.log(userState);
-   
-      API.createUser(userState).then((res) => {
-          console.log(res.data);
 
-          if (res.data) {
-            props.submitHandler(res.data);
-            setUserState({
-              first_name: "",
-              last_name: "",
-              email: "",
-              password: "",
-              picture: "",
-            });
-            history.push("/profile");
-          } else {
-            props.submitHandler(false);
+    API.createUser(userState).then((res) => {
+      console.log(res.data);
 
-            history.push("/signup");
-          }
+      if (res.data) {
+        props.submitHandler(res.data);
+        setUserState({
+          first_name: "",
+          last_name: "",
+          email: "",
+          password: "",
+          picture: "",
         });
-  
+        history.push("/profile");
+      } else {
+        props.submitHandler(false);
+
+        history.push("/signup");
+      }
+    });
   };
 
   return (
@@ -152,7 +153,7 @@ export default function SignUp(props) {
       <br />
       <div className="card-image" id="previewImg">
         <figure className="image is-4by3">
-          <img src={BASE_URL+userState.picture} alt="Placeholder" />
+          <img src={BASE_URL + "/" + userState.picture} alt="Placeholder" />
         </figure>
       </div>
       <br />
