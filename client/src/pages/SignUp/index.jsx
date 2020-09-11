@@ -10,7 +10,7 @@ export default function SignUp(props) {
   
 
   const BASE_URL = process.env.PUBLIC_URL //  || "http://localhost:8080";
-  console.log(BASE_URL);
+  
 
   const getPicture = (event) => {
     let Picture = event.target.files[0];
