@@ -18,21 +18,34 @@ export default function Navbar(props) {
   };
 
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
-      <div id="navbarBasicExample" className="navbar-menu">
-        <div className="navbar-start">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        {/* LEFT */}
+        <div class="navbar-start">
           <Link className="navbar-item" to="/">
             Home
           </Link>
-
-          <div className="navbar-item">
-            <a href="/about">About</a>
-          </div>
         </div>
 
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        
+        {/* RIGHT */}
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div className="buttons ">
               {!props.currentUser && location.pathname !== "/signup" ? (
                 <Link className="button is-primary" to="/signup">
                   <strong>Sign up</strong>
