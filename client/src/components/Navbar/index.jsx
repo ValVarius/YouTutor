@@ -18,10 +18,10 @@ export default function Navbar(props) {
   };
 
   return (
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
+    <nav className="navbar" role="navigation" aria-label="main navigation">
+      <div className="navbar-brand">
         {/* LEFT */}
-        <div class="navbar-start">
+        <div className="navbar-start">
           <Link className="navbar-item" to="/">
             Home
           </Link>
@@ -29,7 +29,7 @@ export default function Navbar(props) {
 
         <a
           role="button"
-          class="navbar-burger burger"
+          className="navbar-burger burger"
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarBasicExample"
@@ -40,11 +40,11 @@ export default function Navbar(props) {
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu">
+      <div id="navbarBasicExample" className="navbar-menu">
         
         {/* RIGHT */}
-        <div class="navbar-end">
-          <div class="navbar-item">
+        <div className="navbar-end">
+          <div className="navbar-item">
             <div className="buttons ">
               {!props.currentUser && location.pathname !== "/signup" ? (
                 <Link className="button is-primary" to="/signup">
