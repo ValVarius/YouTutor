@@ -43,6 +43,7 @@ export default function Profile(props) {
             userdata={User}
             studentsearch={props.studentsearch}
             teachersearch={props.teachersearch}
+            BASE_URL={props.BASE_URL}
           />
         </div>
 
