@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 export default function SignUp(props) {
   
 
-  const BASE_URL = process.env.PUBLIC_URL //  || "http://localhost:8080";
-  console.log(BASE_URL);
+  
+
 
   const getPicture = (event) => {
     let Picture = event.target.files[0];
@@ -153,7 +153,7 @@ export default function SignUp(props) {
       <br />
       <div className="card-image" id="previewImg">
         <figure className="image is-4by3">
-          <img src={BASE_URL + "/" + userState.picture} alt="Placeholder" />
+          <img src={props.BASE_URL + userState.picture} alt={props.BASE_URL + userState.picture} />
         </figure>
       </div>
       <br />

@@ -13,7 +13,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState(false); //contains info on the current user
   const [studentsearch, setStudentSearch] = useState(false); //stores the list of matching student
   const [teachersearch, setTeacherSearch] = useState(false); //stores the list of matching teachers
-
+  const BASE_URL = "http://localhost:8080/"; //"http://www.you-tutor.com/"
+  // "http://localhost:8080/";
 
   useEffect(() => {
     API.readSessions().then((res) => {
@@ -86,7 +87,7 @@ function App() {
             </Route>
 
             <Route exact path="/signup">
-              <SignUp submitHandler={loginSubmitHandler} />
+              <SignUp submitHandler={loginSubmitHandler} BASE_URL={BASE_URL} />
             </Route>
 
             <Route exact path="/profile">
@@ -94,6 +95,7 @@ function App() {
                 currentUser={currentUser}
                 studentsearch={studentsearch}
                 teachersearch={teachersearch}
+                BASE_URL={BASE_URL}
               />
             </Route>
 
