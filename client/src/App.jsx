@@ -14,7 +14,7 @@ function App() {
   const [studentsearch, setStudentSearch] = useState(false); //stores the list of matching student
   const [teachersearch, setTeacherSearch] = useState(false); //stores the list of matching teachers
   const BASE_URL = "http://www.you-tutor.com/"
-  // "http://localhost:8080/";
+  // const BASE_URL = "http://localhost:8080/";
 
   useEffect(() => {
     API.readSessions().then((res) => {

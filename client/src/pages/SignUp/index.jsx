@@ -153,7 +153,7 @@ export default function SignUp(props) {
       <br />
       <div className="card-image" id="previewImg">
         <figure className="image is-4by3">
-          <img src={props.BASE_URL + userState.picture} alt={props.BASE_URL + userState.picture} />
+          <img src={props.BASE_URL + userState.picture} alt={userState.picture} />
         </figure>
       </div>
       <br />
