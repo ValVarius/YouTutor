@@ -13,7 +13,7 @@ export default function HomePage() {
     return (
         <div className = "HomePage">
          <Hero/>
-         <div styles={{backgroundImage:`url($({../..public/TUBER})` }}></div>
+         {/* <div styles={{backgroundImage:`url($({../..public/TUBER})` }}></div> */}
 
 
             
