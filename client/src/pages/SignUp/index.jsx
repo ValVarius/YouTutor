@@ -98,20 +98,6 @@ export default function SignUp(props) {
         </div>
       </div>
 
-      {/* <div className="field">
-  <label className="label">UserName</label>
-  <div className="control">
-    <input className="input" type="text" onChange={handleInputChange} name="username" value={userState.username} placeholder="Create a Username"/>
-  </div>
-</div> */}
-
-      {/* <div className="field">
-  <label className="label">ZipCode</label>
-  <div className="control">
-    <input className="input" type="text" onChange={handleInputChange} name="zipcode" value={userState.zipcode} placeholder="98101"/>
-  </div>
-</div> */}
-
       <div className="field">
         <label className="label">Email</label>
         <p className="control has-icons-left">
@@ -149,20 +135,20 @@ export default function SignUp(props) {
       {/* <ImageUpload getPicture= {getPicture}/> */}
       <br />
 
-      <div class="file has-name is-warning is-centered">
-        <label class="file-label">
+      <div className="file has-name is-warning is-centered">
+        <label className="file-label">
           <input
-            class="file-input"
+            className="file-input"
             type="file"
             name="profile"
             onChange={getPicture}
           />
-          <span class="file-cta">
-            <span class="file-icon">
-              <i class="fas fa-upload"></i>
+          <span className="file-cta">
+            <span className="file-icon">
+              <i className="fas fa-upload"></i>
             </span>
-            <span class="file-label">Choose a Profile Picture</span>
-            <span class="file-name">{userState.picture}</span>
+            <span className="file-label">Choose a Profile Picture</span>
+            <span className="file-name">{userState.picture}</span>
           </span>
         </label>
       </div>
