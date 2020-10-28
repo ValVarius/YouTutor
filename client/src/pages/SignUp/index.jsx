@@ -98,20 +98,6 @@ export default function SignUp(props) {
         </div>
       </div>
 
-      {/* <div className="field">
-  <label className="label">UserName</label>
-  <div className="control">
-    <input className="input" type="text" onChange={handleInputChange} name="username" value={userState.username} placeholder="Create a Username"/>
-  </div>
-</div> */}
-
-      {/* <div className="field">
-  <label className="label">ZipCode</label>
-  <div className="control">
-    <input className="input" type="text" onChange={handleInputChange} name="zipcode" value={userState.zipcode} placeholder="98101"/>
-  </div>
-</div> */}
-
       <div className="field">
         <label className="label">Email</label>
         <p className="control has-icons-left">
