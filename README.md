@@ -23,7 +23,7 @@ This React application is disigned to create a simple, basic, and pleasantly joy
 
 ## Technologies
 
-* Built with Bulma for style: [Bootstrap](https://getbootstrap.com/)
+* Built with Bulma for style: [Bulma](https://bulma.io/)
 
 * additional source for style: [Reveal](https://www.react-reveal.com/)
 
