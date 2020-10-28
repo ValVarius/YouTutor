@@ -26,37 +26,35 @@ export default function Login(props) {
     API.login(loginState).then((res) => {
       if (res.data.id) {
         props.submitHandler(res.data);
-          if(res.data.TeacherSkills){
-            console.log("THIS IS WHAT YOU GET FROM THE API: ", res);
-            const teacherSkillsArray = [];
-            res.data.TeacherSkills.forEach((element) => {
-              teacherSkillsArray.push(element.skill);
-            });
-          
-            API.getStudentMatch({ skills: teacherSkillsArray.join(",") })
-              .then((newUser) => {
+        if (res.data.TeacherSkills) {
+          console.log("THIS IS WHAT YOU GET FROM THE API: ", res);
+          const teacherSkillsArray = [];
+          res.data.TeacherSkills.forEach((element) => {
+            teacherSkillsArray.push(element.skill);
+          });
 
-                props.passStudents(newUser.data);
-              })
-              .catch((err) => {
-                console.log(err);
-              });
-            }
-            if(res.data.StudentSkills){
-              const studentSkillsArray = [];
-              res.data.StudentSkills.forEach((element) => {
-                studentSkillsArray.push(element.skill);
-              });
-           
-              API.getTeacherMatch({ skills: studentSkillsArray.join(",") })
-                .then((newUser) => {
-               
-                  props.passTeachers(newUser.data);
-                })
-                .catch((err) => {
-                  console.log(err);
-                });
-              }
+          API.getStudentMatch({ skills: teacherSkillsArray.join(",") })
+            .then((newUser) => {
+              props.passStudents(newUser.data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+        if (res.data.StudentSkills) {
+          const studentSkillsArray = [];
+          res.data.StudentSkills.forEach((element) => {
+            studentSkillsArray.push(element.skill);
+          });
+
+          API.getTeacherMatch({ skills: studentSkillsArray.join(",") })
+            .then((newUser) => {
+              props.passTeachers(newUser.data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
         history.push("/profile");
       } else {
         props.submitHandler(false);
@@ -102,19 +100,22 @@ export default function Login(props) {
           />
         </div>
       </div>
-
-      <div className="field is-grouped">
-        <div className="control">
-          <button className="button is-link" onClick={handleFormSubmit}>
-            Submit
-          </button>
-        </div>
-        <div className="control">
-          <button className="button is-link is-light">
-            <Link to="/">Cancel</Link>
-          </button>
+      <br />
+      <div className="buttons is-centered">
+        <div className="field is-grouped">
+          <div className="control">
+            <button className="button is-link" onClick={handleFormSubmit}>
+              Submit
+            </button>
+          </div>
+          <div className="control">
+            <button className="button is-link is-light">
+              <Link to="/">Cancel</Link>
+            </button>
+          </div>
         </div>
       </div>
+      <br />
     </div>
   );
 }

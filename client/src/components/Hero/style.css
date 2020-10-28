@@ -4,7 +4,9 @@
 }
 .has-bg-img {
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url("../../public/light.jpg");
-  background-size: cover;
+  
+  background-size: 100% 100%;
+
   /* background-image: linear-gradient(rgb(255, 0, 0, 0.5), rgb(255, 255, 0, 0.5)) ,url("../../public/light.jpg"); */
 }
 
