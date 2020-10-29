@@ -44,9 +44,7 @@ To view this app you can click : [here](http://www.you-tutor.com/)
 
 To-do list:
 
-* Homepage for mobile should be a badge perhaps...
-* Add a section in homepage dedicated to the skills acquired...perhaps a new component matching the theme.
-* definetly bypass the homepage component, move it in the app.js file...
+* Redesign profile page...
 * Update ReadMe when design is done.
 
 
