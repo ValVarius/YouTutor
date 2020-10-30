@@ -11,7 +11,7 @@ export default function Profile(props) {
 
   const [dropdown, setDropdown] = useState({
     dropTeacher: "dropdown",
-    dropStudent: "dropdown"
+    dropStudent: "dropdown",
   });
 
   const dropClick = (event) => {
@@ -30,7 +30,7 @@ export default function Profile(props) {
     event.stopPropagation();
     setDropdown({
       dropTeacher: "dropdown",
-      dropStudent: "dropdown"
+      dropStudent: "dropdown",
     });
   };
 
@@ -90,7 +90,11 @@ export default function Profile(props) {
                         >
                           <div className="dropdown-content">
                             {User.TeacherSkills.map((element) => (
-                              <div className="dropdown-item" value={element.skill} key={element.skill}>
+                              <div
+                                className="dropdown-item"
+                                value={element.skill}
+                                key={element.skill}
+                              >
                                 {element.skill}
                               </div>
                             ))}
@@ -148,7 +152,11 @@ export default function Profile(props) {
                         >
                           <div className="dropdown-content">
                             {User.StudentSkills.map((element) => (
-                              <div className="dropdown-item" value={element.skill} key={element.skill}>
+                              <div
+                                className="dropdown-item"
+                                value={element.skill}
+                                key={element.skill}
+                              >
                                 {element.skill}
                               </div>
                             ))}
