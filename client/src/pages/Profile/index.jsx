@@ -119,7 +119,7 @@ export default function Profile(props) {
                   <div className="content center-element">
                     <br />
                     <div>
-                      <p className="title is-4 ">What you are Learning</p>
+                      <p className="title is-4 ">You as a Student</p>
                       <p className="title is-6 left-element">
                         ABOUT:{" "}
                         <span className="is-4">{User.Studentpost.about}</span>
@@ -132,7 +132,7 @@ export default function Profile(props) {
                             aria-controls="dropdown-menu"
                             onClick={dropClick2}
                           >
-                            <span>Your Teaching Skills</span>
+                            <span>What you are Learning</span>
                             <span className="icon is-small">
                               <i
                                 className="fas fa-angle-down"
@@ -155,16 +155,6 @@ export default function Profile(props) {
                           </div>
                         </div>
                       </div>
-                      {/* <div className="select is-multiple">
-                        <select multiple size="4">
-                          {User.StudentSkills.map((element) => (
-                            <option value={element.skill} key={element.skill}>
-                              {" "}
-                              {element.skill}
-                            </option>
-                          ))}
-                        </select>
-                      </div> */}
                     </div>
                   </div>
                 </div>
@@ -291,34 +281,6 @@ export default function Profile(props) {
                                 : ""}
                             </p>
                           </div>
-                          {/* <nav className="level is-mobile">
-                            <div className="level-left">
-                              <a className="level-item" aria-label="reply">
-                                <span className="icon is-small">
-                                  <i
-                                    className="fas fa-reply"
-                                    aria-hidden="true"
-                                  ></i>
-                                </span>
-                              </a>
-                              <a className="level-item" aria-label="retweet">
-                                <span className="icon is-small">
-                                  <i
-                                    className="fas fa-retweet"
-                                    aria-hidden="true"
-                                  ></i>
-                                </span>
-                              </a>
-                              <a className="level-item" aria-label="like">
-                                <span className="icon is-small">
-                                  <i
-                                    className="fas fa-heart"
-                                    aria-hidden="true"
-                                  ></i>
-                                </span>
-                              </a>
-                            </div>
-                          </nav> */}
                         </div>
                       </article>
                     </div>
