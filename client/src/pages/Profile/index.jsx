@@ -10,19 +10,27 @@ export default function Profile(props) {
   console.log(props);
 
   const [dropdown, setDropdown] = useState({
-    dropdowns: "dropdown",
+    dropTeacher: "dropdown",
+    dropStudent: "dropdown"
   });
 
   const dropClick = (event) => {
     event.stopPropagation();
     setDropdown({
-      dropdowns: "dropdown is-active",
+      dropTeacher: "dropdown is-active",
+    });
+  };
+  const dropClick2 = (event) => {
+    event.stopPropagation();
+    setDropdown({
+      dropStudent: "dropdown is-active",
     });
   };
   const dropClickOff = (event) => {
     event.stopPropagation();
     setDropdown({
-      dropdowns: "dropdown",
+      dropTeacher: "dropdown",
+      dropStudent: "dropdown"
     });
   };
 
@@ -57,9 +65,8 @@ export default function Profile(props) {
                         ABOUT:{" "}
                         <span className="is-4">{User.Teacher.about}</span>
                       </p>
-                      <p className="title is-6 left-element">SKILLS:</p>
                       {/*  */}
-                      <div className={dropdown.dropdowns}>
+                      <div className={dropdown.dropTeacher}>
                         <div className="dropdown-trigger">
                           <button
                             className="button"
@@ -112,13 +119,43 @@ export default function Profile(props) {
                   <div className="content center-element">
                     <br />
                     <div>
-                      <p className="title is-4 ">Your Student Post</p>
+                      <p className="title is-4 ">What you are Learning</p>
                       <p className="title is-6 left-element">
                         ABOUT:{" "}
                         <span className="is-4">{User.Studentpost.about}</span>
                       </p>
-                      <p className="title is-6 left-element">SKILLS:</p>
-                      <div className="select is-multiple">
+                      <div className={dropdown.dropStudent}>
+                        <div className="dropdown-trigger">
+                          <button
+                            className="button"
+                            aria-haspopup="true"
+                            aria-controls="dropdown-menu"
+                            onClick={dropClick2}
+                          >
+                            <span>Your Teaching Skills</span>
+                            <span className="icon is-small">
+                              <i
+                                className="fas fa-angle-down"
+                                aria-hidden="true"
+                              ></i>
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          className="dropdown-menu"
+                          id="dropdown-menu"
+                          role="menu"
+                        >
+                          <div className="dropdown-content">
+                            {User.StudentSkills.map((element) => (
+                              <div className="dropdown-item" value={element.skill} key={element.skill}>
+                                {element.skill}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      {/* <div className="select is-multiple">
                         <select multiple size="4">
                           {User.StudentSkills.map((element) => (
                             <option value={element.skill} key={element.skill}>
@@ -127,28 +164,9 @@ export default function Profile(props) {
                             </option>
                           ))}
                         </select>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
-                  {/* <nav className="level is-mobile">
-                    <div className="level-left">
-                      <a className="level-item" aria-label="reply">
-                        <span className="icon is-small">
-                          <i className="fas fa-reply" aria-hidden="true"></i>
-                        </span>
-                      </a>
-                      <a className="level-item" aria-label="retweet">
-                        <span className="icon is-small">
-                          <i className="fas fa-retweet" aria-hidden="true"></i>
-                        </span>
-                      </a>
-                      <a className="level-item" aria-label="like">
-                        <span className="icon is-small">
-                          <i className="fas fa-heart" aria-hidden="true"></i>
-                        </span>
-                      </a>
-                    </div>
-                  </nav> */}
                 </div>
               </article>
             </div>
@@ -211,34 +229,6 @@ export default function Profile(props) {
                                 : ""}
                             </p>
                           </div>
-                          {/* <nav className="level is-mobile">
-                            <div className="level-left">
-                              <a className="level-item" aria-label="reply">
-                                <span className="icon is-small">
-                                  <i
-                                    className="fas fa-reply"
-                                    aria-hidden="true"
-                                  ></i>
-                                </span>
-                              </a>
-                              <a className="level-item" aria-label="retweet">
-                                <span className="icon is-small">
-                                  <i
-                                    className="fas fa-retweet"
-                                    aria-hidden="true"
-                                  ></i>
-                                </span>
-                              </a>
-                              <a className="level-item" aria-label="like">
-                                <span className="icon is-small">
-                                  <i
-                                    className="fas fa-heart"
-                                    aria-hidden="true"
-                                  ></i>
-                                </span>
-                              </a>
-                            </div>
-                          </nav> */}
                         </div>
                       </article>
                     </div>
