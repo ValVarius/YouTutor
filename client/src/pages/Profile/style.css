@@ -1,59 +1,56 @@
- /* .ProfilePage{
+/* .ProfilePage{
     display: flex;
  } */
 
-h1{
-    text-align: center;
-  
+h1 {
+  text-align: center;
 }
-.btn{
-    align-items: center;
-    margin-inline-start: 15cm;
-    text-align: center;
+.btn {
+  align-items: center;
+  margin-inline-start: 15cm;
+  text-align: center;
 }
-h3{
-    text-align: center;
-}
-
-.studentbox{
-    border: 1px solid blue;
-    margin-top: 10px;
-    text-align: center;
-   
+h3 {
+  text-align: center;
 }
 
-
-.teacherbox{
-   
-    border: 1px solid red;
-    margin-top: 10px;
-    text-align: center;
-
-    
+.studentbox {
+  border: 1px solid blue;
+  margin-top: 10px;
+  text-align: center;
 }
 
-.tutor-button{
-    margin-top: 10px;
-    text-align: center;
-   
-
+.teacherbox {
+  border: 1px solid red;
+  margin-top: 10px;
+  text-align: center;
 }
 
-.center-element{
-    text-align: center;
+.tutor-button {
+  margin-top: 10px;
+  text-align: center;
 }
 
-
-.left-element{
-    text-align: left;
+.center-element {
+  text-align: center;
 }
 
-/* .teacher-box{
-    margin-top: 10px;
-
+.left-element {
+  text-align: left;
 }
 
-.student-box{
-    margin-top: 10px;
+.teacher-box {
+   margin-top: 40px; 
 
-} */
+} 
+
+.student-post {
+  margin-top: 40px;
+}
+
+.columns {
+  margin-top: 20px;
+  border: 1px;
+  border-style: solid;
+  border-color:rgb(143, 41, 41)
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ProfileCard from "../../components/ProfileCard";
 import "./style.css";
 import { Link } from "react-router-dom";
@@ -6,37 +6,28 @@ import { Link } from "react-router-dom";
 export default function Profile(props) {
   //   const SearchResultArr = [];
   const User = props.currentUser;
-  const BASE_URL = props.BASE_URL
-
-  // console.log(User);
+  const BASE_URL = props.BASE_URL;
   console.log(props);
 
-  //   const updateTutorRating = (nextValue, prevValue, name) => {
-  //     const dataToSupplyIntoAPI = {
-  //       rating: nextValue,
-  //     };
-  //   };
+  const [dropdown, setDropdown] = useState({
+    dropdowns: "dropdown",
+  });
 
-  //   const getTutors = () => {
-  //     return [{ id: 3, name: "Sveta", rating: 3 }];
-  //   };
-
-  //   const tutors = getTutors();
-  //   const tutorCards = [];
-
-  // for (let i = 0; i < tutors.length; i++) {
-  //     const tutor = tutors[i];
-  //     tutorCards.push(
-  //         <div>
-  //             {tutor.name} : <StarRatingComponent name={tutor.id} value={tutor.rating} onStarClick={
-  //                 (nextValue, prevValue, name) => updateTutorRating(nextValue, prevValue, name)
-  //             } />
-  //         </div>
-  //     );
-  // }
+  const dropClick = (event) => {
+    event.stopPropagation();
+    setDropdown({
+      dropdowns: "dropdown is-active",
+    });
+  };
+  const dropClickOff = (event) => {
+    event.stopPropagation();
+    setDropdown({
+      dropdowns: "dropdown",
+    });
+  };
 
   return (
-    <div className="ProfilePage center-element">
+    <div className="ProfilePage center-element" onClick={dropClickOff}>
       {/* FIRST ROW */}
       <div className="columns ">
         <div className="column is-4">
@@ -53,6 +44,7 @@ export default function Profile(props) {
           <button className="button is-link is-outlined tutor-button">
             <Link to="/newTeacherPost">LOOK FOR A STUDENT</Link>
           </button>
+
           {User.Teacher ? (
             <div className="box teacher-box">
               <article className="media">
@@ -66,37 +58,41 @@ export default function Profile(props) {
                         <span className="is-4">{User.Teacher.about}</span>
                       </p>
                       <p className="title is-6 left-element">SKILLS:</p>
-                      <div className="select is-multiple">
-                        <select multiple size="4">
-                          {User.TeacherSkills.map((element) => (
-                            <option value={element.skill} key={element.skill}>
-                              {" "}
-                              {element.skill}
-                            </option>
-                          ))}
-                        </select>
+                      {/*  */}
+                      <div className={dropdown.dropdowns}>
+                        <div className="dropdown-trigger">
+                          <button
+                            className="button"
+                            aria-haspopup="true"
+                            aria-controls="dropdown-menu"
+                            onClick={dropClick}
+                          >
+                            <span>Your Teaching Skills</span>
+                            <span className="icon is-small">
+                              <i
+                                className="fas fa-angle-down"
+                                aria-hidden="true"
+                              ></i>
+                            </span>
+                          </button>
+                        </div>
+                        <div
+                          className="dropdown-menu"
+                          id="dropdown-menu"
+                          role="menu"
+                        >
+                          <div className="dropdown-content">
+                            {User.TeacherSkills.map((element) => (
+                              <div className="dropdown-item" value={element.skill} key={element.skill}>
+                                {element.skill}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                       </div>
+                      {/*  */}
                     </div>
                   </div>
-                  {/* <nav className="level is-mobile">
-                    <div className="level-left">
-                      <a className="level-item" aria-label="reply">
-                        <span className="icon is-small">
-                          <i className="fas fa-reply" aria-hidden="true"></i>
-                        </span>
-                      </a>
-                      <a className="level-item" aria-label="retweet">
-                        <span className="icon is-small">
-                          <i className="fas fa-retweet" aria-hidden="true"></i>
-                        </span>
-                      </a>
-                      <a className="level-item" aria-label="like">
-                        <span className="icon is-small">
-                          <i className="fas fa-heart" aria-hidden="true"></i>
-                        </span>
-                      </a>
-                    </div>
-                  </nav> */}
                 </div>
               </article>
             </div>
@@ -176,7 +172,8 @@ export default function Profile(props) {
                             <img
                               src={
                                 userInfo.studentResults
-                                  ? BASE_URL + userInfo.studentResults[0].User.picture
+                                  ? BASE_URL +
+                                    userInfo.studentResults[0].User.picture
                                   : "https://bulma.io/images/placeholders/128x128.png"
                               }
                               alt="user"
@@ -267,10 +264,11 @@ export default function Profile(props) {
                             <img
                               src={
                                 userInfo.teacherResults
-                                  ? BASE_URL + userInfo.teacherResults[0].User.picture
+                                  ? BASE_URL +
+                                    userInfo.teacherResults[0].User.picture
                                   : "https://bulma.io/images/placeholders/128x128.png"
                               }
-                              alt= {userInfo.teacherResults[0].User.picture}
+                              alt={userInfo.teacherResults[0].User.picture}
                             />
                           </figure>
                         </div>
