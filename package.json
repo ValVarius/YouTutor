@@ -2,6 +2,10 @@
   "name": "yoututor",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "16.17.0",
+    "npm": "9.1.1"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,6 +15,8 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
+  
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ValVarius/YouTutor.git"
