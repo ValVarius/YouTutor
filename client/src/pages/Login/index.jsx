@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import { useHistory } from "react-router-dom";
+import "./style.css"
 
 export default function Login(props) {
   const [loginState, setLoginState] = useState({
@@ -9,6 +10,8 @@ export default function Login(props) {
     password: "",
   });
 
+  const [incorrect, setIncorrect] = useState("");
+  const [notfound, setNotfound] = useState("");
   const history = useHistory();
 
   const handleInputChange = (event) => {
@@ -24,8 +27,18 @@ export default function Login(props) {
     // console.log(loginState);
 
     API.login(loginState).then((res) => {
-      if (res.data.id) {
+
+      if (res.data === "WRONG PASSWORD") {
+        setIncorrect("Incorrect Password");
+        setNotfound("");
+      } else if (res.data === "WRONG USERNAME") {
+        setNotfound("User Not Found");
+        setIncorrect("");
+      } else if (res.data.id) {
+        setIncorrect("");
+        setNotfound("");
         props.submitHandler(res.data);
+        
         if (res.data.TeacherSkills) {
           console.log("THIS IS WHAT YOU GET FROM THE API: ", res);
           const teacherSkillsArray = [];
@@ -56,10 +69,16 @@ export default function Login(props) {
             });
         }
         history.push("/profile");
-      } else {
-        props.submitHandler(false);
-        history.push("/login");
       }
+
+     
+      
+      // if (res.data.id) {
+        
+      // } else {
+      //   props.submitHandler(false);
+      //   history.push("/login");
+      // }
     });
   };
 
@@ -85,6 +104,7 @@ export default function Login(props) {
             value={loginState.email}
           />
         </div>
+        <div className="warning">{notfound}</div>
       </div>
 
       <div className="field">
@@ -99,6 +119,7 @@ export default function Login(props) {
             value={loginState.password}
           />
         </div>
+        <div className="warning">{incorrect}</div>
       </div>
       <br />
       <div className="buttons is-centered">
