@@ -30,6 +30,7 @@ function App() {
             studentSkillsArray.push(element.skill);
           });
 
+          
           API.getTeacherMatch({ skills: studentSkillsArray.join(",") })
             .then((newUser) => {
               passTeachers(newUser.data);
